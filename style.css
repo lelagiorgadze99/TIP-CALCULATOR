@@ -68,10 +68,12 @@ body {
 .svg-input {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: var(--inputBG);
   padding: 0.6rem 1.8rem;
   border-radius: 0.5rem;
   cursor: pointer;
+  border: 2px solid var(--inputBG);
 }
 input {
   font-family: "Space Mono", monospace;
@@ -103,7 +105,7 @@ button {
   color: var(--customTipColor);
   padding-right: 3rem;
 }
-.percentage {
+.percentage-box {
   display: flex;
   flex-wrap: wrap;
   gap: 1.65rem;
@@ -148,9 +150,13 @@ button {
   text-align: right;
   letter-spacing: -0.67px;
 }
-input ::placeholder{
+button:active{
+    background-color: #26c2ae;
+}
+.reset:active{
     opacity: 1;
 }
+
 @media (min-width: 1360px) {
   .container {
     flex-direction: row;
@@ -175,7 +181,7 @@ input ::placeholder{
   .svg-input {
     padding: 0.6rem 1.7rem;
   }
-  .svg-input :hover {
+  .svg-input:hover {
     border: 2px solid #26c2ae;
   }
   button:hover {
@@ -186,5 +192,12 @@ input ::placeholder{
   .custom:hover {
     border: 2px solid #26c2ae;
     border-radius: 0.5rem;
+  }
+  .custom{
+    width: 12.8rem;
+    padding-right: 2rem;
+  }
+  button{
+    width: 10.7rem;
   }
 }
