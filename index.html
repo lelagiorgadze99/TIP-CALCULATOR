@@ -56,8 +56,13 @@
             </div>
           </div>
           <div class="people-box">
-            <h3 class="title people">Number of People</h3>
-            <div class="svg-input">
+            <div class="input-heading">
+              <h3 class="title people">Number of People</h3>
+            <p id="p-zero">Can't be zero or negative</p>
+            <p id="integer">it should be integer</p>
+            </div>
+            
+            <div id="svg-input" class="svg-input">
               <svg xmlns="http://www.w3.org/2000/svg" width="11" height="17">
                 <path
                   fill="#9EBBBD"
@@ -85,7 +90,7 @@
             </div>
             <div id="totalAmount" class="amount">$0.00</div>
           </div>
-          <button class="reset">Reset</button>
+          <button id="resetBtn" class="reset">Reset</button>
         </section>
       </div>
     <script src="./script.js"></script>
