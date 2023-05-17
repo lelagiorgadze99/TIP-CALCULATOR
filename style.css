@@ -75,14 +75,21 @@ body {
   cursor: pointer;
   border: 2px solid var(--inputBG);
 }
+/* isrebis mocileba */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 input {
+  outline: none;
   font-family: "Space Mono", monospace;
   font-weight: 700;
   border: none;
   background-color: inherit;
   text-align: end;
   font-size: 2.4rem;
-  width: 9rem;
+  width: 90%;
 }
 /* tip buttons */
 .tip {
@@ -153,6 +160,9 @@ button {
 }
 button:active{
     background-color: #26c2ae;
+}
+.active{
+  background-color: #26c2ae;
 }
 .reset:active{
     opacity: 1;

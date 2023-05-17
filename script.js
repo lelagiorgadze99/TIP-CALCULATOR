@@ -19,43 +19,44 @@ let customValue;
 
 Array.from(percentageBtn).forEach((btn) => {
   btn.addEventListener("click", (event) => {
+    const clickedBtn = event.target;
     tip = parseInt(event.target.textContent);
     calculate();
     console.log(tip);
+    Array.from(percentageBtn).forEach((btn) => {
+      btn.classList.remove("active");
+    });
+    clickedBtn.classList.add("active");
+    
   });
 });
 bill.addEventListener("input", (event) => {
   billValue = Number(event.target.value);
   console.log(billValue);
   calculate();
-  calculateCustom();
 });
 people.addEventListener("input", (event) => {
   peopleValue = Number(event.target.value);
   console.log(peopleValue);
   calculate();
-  calculateCustom();
   zero();
 });
 custom.addEventListener("input", (event)=> {
   customValue = Number(event.target.value);
-  console.log(customValue);
-  calculateCustom();
+  tip = customValue
+  calculate();
 })
 resetBtn.addEventListener("click", reset);
 
 
 function calculate() {
-  tipAmount = ((billValue * (tip / 100)) / peopleValue).toFixed(2);
-  total = ((billValue + billValue * (tip / 100)) / peopleValue).toFixed(2);
-  tipResult.textContent = `$${tipAmount}`;
-  totalResult.textContent = `$${total}`;
-}
-function calculateCustom(){
-  tipAmount = ((billValue * (customValue / 100)) / peopleValue).toFixed(2);
-  total = ((billValue + billValue * (customValue / 100)) / peopleValue).toFixed(2);
-  tipResult.textContent = `$${tipAmount}`;
-  totalResult.textContent = `$${total}`;
+  if(billValue > 0 && peopleValue > 0 && people % 1 == 0){
+    tipAmount = ((billValue * (tip / 100)) / peopleValue).toFixed(2);
+    total = ((billValue + billValue * (tip / 100)) / peopleValue).toFixed(2);
+    tipResult.textContent = `$${tipAmount}`;
+    totalResult.textContent = `$${total}`;
+  }
+ 
 }
 function zero() {
   if (peopleValue == 0 || peopleValue <= 0) {
@@ -85,6 +86,9 @@ function reset(){
   totalResult.textContent = `$0.00`;
   customValue = 0;
   custom.value = 0;
+  peopleDiv.style.border = "2px solid white";
+  pZero.style.display = "none";
+  integer.style.display = "none";
 
 }
 
