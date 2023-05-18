@@ -8,8 +8,8 @@ const totalResult = document.getElementById("totalAmount");
 const pZero = document.getElementById("p-zero");
 const peopleDiv = document.getElementById("svg-input");
 const integer = document.getElementById("integer");
-const resetBtn = document.getElementById('resetBtn');
-const custom = document.getElementById('custom');
+const resetBtn = document.getElementById("resetBtn");
+const custom = document.getElementById("custom");
 let tip;
 let billValue;
 let peopleValue;
@@ -27,7 +27,6 @@ Array.from(percentageBtn).forEach((btn) => {
       btn.classList.remove("active");
     });
     clickedBtn.classList.add("active");
-    
   });
 });
 bill.addEventListener("input", (event) => {
@@ -41,22 +40,20 @@ people.addEventListener("input", (event) => {
   calculate();
   zero();
 });
-custom.addEventListener("input", (event)=> {
+custom.addEventListener("input", (event) => {
   customValue = Number(event.target.value);
-  tip = customValue
+  tip = customValue;
   calculate();
-})
+});
 resetBtn.addEventListener("click", reset);
 
-
 function calculate() {
-  if(billValue > 0 && peopleValue > 0 && people % 1 == 0){
+  if (billValue > 0 && peopleValue > 0 && peopleValue % 1 == 0) {
     tipAmount = ((billValue * (tip / 100)) / peopleValue).toFixed(2);
     total = ((billValue + billValue * (tip / 100)) / peopleValue).toFixed(2);
     tipResult.textContent = `$${tipAmount}`;
     totalResult.textContent = `$${total}`;
   }
- 
 }
 function zero() {
   if (peopleValue == 0 || peopleValue <= 0) {
@@ -68,7 +65,6 @@ function zero() {
       integer.style.display = "block";
       peopleDiv.style.border = "2px solid red";
       pZero.style.display = "none";
-     
     } else {
       pZero.style.display = "none";
       integer.style.display = "none";
@@ -76,7 +72,7 @@ function zero() {
   }
 }
 
-function reset(){
+function reset() {
   bill.value = "";
   billValue = 0;
   people.value = "";
@@ -89,6 +85,7 @@ function reset(){
   peopleDiv.style.border = "2px solid white";
   pZero.style.display = "none";
   integer.style.display = "none";
-
+  Array.from(percentageBtn).forEach((btn) => {
+    btn.classList.remove("active");
+  });
 }
-
